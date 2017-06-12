@@ -1,0 +1,8 @@
+<md-button ng-hide="$ctrl.hideReturn" aria-label='Volver' ng-click='$ctrl.cambiarEstado()' class="volver">
+  <i class="fa fa-arrow-left"></i> <small class="hidden-xs hidden-sm">{{$ctrl.text || 'Volver'}}</small>
+</md-button>
+<div class="migapan">
+    <ng-md-icon class="fa" ng-class="$ctrl.title.icon"></ng-md-icon>
+    <span class="font-bold">{{$ctrl.title.text}}</span>
+</div>
+

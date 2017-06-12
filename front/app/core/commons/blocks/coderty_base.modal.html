@@ -1,0 +1,21 @@
+<md-dialog aria-label="Dialog" >
+  <md-toolbar class="md-primary md-transparent">
+    <div class="md-toolbar-tools">
+      <h2><i class="fa {{vm.icoTitle}} fa-lg"></i> {{vm.title}}</h2>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+    <div class="md-dialog-content">
+      <p ng-bind-html="vm.text"></p>
+    </div>
+  </md-dialog-content>
+  <md-dialog-actions layout="row">
+    <md-button ng-if="vm.btnCancel || vm.icoCancel" ng-click="vm.close()" >
+        <i class="fa {{vm.icoCancel}}"></i> {{vm.btnCancel}}
+      </md-button>
+      <button ng-if="vm.btnOk || vm.icoOk" class="md-button md-ink-ripple ng-click-active" ng-class="{'vsg': !vm.regularOperation}"
+        type="button" ng-click="vm.confirm()">
+          <i class="fa {{vm.icoOk}}"></i> {{vm.btnOk}}
+      </button>
+  </md-dialog-actions>
+</md-dialog>

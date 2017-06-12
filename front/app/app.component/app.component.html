@@ -1,0 +1,33 @@
+<div class="heigth-100" layout="row">
+  <!--content-->
+  <div layout="column" class="relative" layout-fill role="main">
+    <md-toolbar class="md-hue-2 cabecera no-select" >
+      <div class="md-toolbar-tools barra" style="-webkit-app-region: drag">
+        <cdty-nav></cdty-nav>
+        <span flex></span>
+     
+        <!--cerrar sesion-->
+        <a ng-click="::$ctrl.closeSession($event)" title="Cerrar sesión" class="cerrar" aria-label="cerrar sesion">
+          <i class="fa fa-fw fa-sign-out text"></i>
+        </a>
+        <div ng-if="$ctrl.inNW" class="opcsistema">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="hidden-xs">
+              <a ui-fullscreen class="fullscreen"></a>
+            </li>
+            <li><a class="minimizar" ng-click="$ctrl.minimize()"><i class="fa fa-minus"></i></a></li>
+            <li><a class="maximizar" ng-click="$ctrl.maximize()"><i class="fa fa-square"></i></a></li>
+            <li><a class="cerrar" ng-click="$ctrl.closeApp($event, true)"><i class="fa fa-times"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </md-toolbar>
+
+    <md-content class="main-container">
+      <div ui-butterbar></div>
+      <div flex></div>
+      <div class="md-content" ui-view></div>
+    </md-content>
+  </div>
+</div>
+<toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}" ng-model="mensaje"></toaster-container>

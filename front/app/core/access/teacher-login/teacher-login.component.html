@@ -1,0 +1,56 @@
+<div class="signin">
+  <navbar-signin></navbar-signin>
+  <div class="wrapper text-center">
+    <img src="./img/logo.png" class="logoinicio" alt="UpdateURface" />
+  </div>
+  <div>
+    <!--ACCESOS RECIENTES-->
+    <lasts-users ng-show="$ctrl.accesosSugeridos" logged-users="$ctrl.usuarioLogueados" on-remove-user="$ctrl.removeUser(user)"
+      on-sign-in="$ctrl.signIn(u, p, user)" trying-login="$ctrl.tryingLogin"></lasts-users>
+
+    <!--ACCESO-->
+    <div class="animated fadeInUp container w-xxl w-auto-xs" ng-if="!$ctrl.accesosSugeridos">
+      <div class="m-b-lg" ng-class="{'hvr-wobble-skew': $ctrl.user.err}">
+        <div class="wrapper text-center">
+          <strong>Indique su usuario y contraseña para acceder</strong>
+        </div>
+        <form name="form" class="form-validation" autocomplete="off" ng-submit="$ctrl.signIn($ctrl.user.username, $ctrl.user.password, $ctrl.user)"
+          style="-webkit-app-region: no-drag">
+          <div class="list-group list-group-sm">
+            <div class="list-group-item">
+              <input type="text" placeholder="Usuario" class="form-control no-border" autocomplete="off" ng-model="$ctrl.user.username"
+                required>
+            </div>
+            <div class="list-group-item">
+              <input type="password" placeholder="Contraseña" class="form-control no-border" autocomplete="off" ng-model="$ctrl.user.password"
+                required>
+            </div>
+          </div>
+          <div coderty-loading="$ctrl.tryingLogin">
+
+            <button type="submit" class="btn btn-lg btn-dark btn-block" ng-disabled='form.$invalid'>
+              <i class="fa fa-arrow-right"></i> Acceder
+            </button>
+            <!--ng-click="$ctrl.signIn($ctrl.user.username, $ctrl.user.password)"-->
+            <div class="row">
+              <div class="col-md-12">
+                <a class="text-center" ui-sref="access.signin">
+                  <i class="fa fa-arrow-left"></i> Volver
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="line line-dashed"></div>
+        </form>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="text-center m-t-xxl" ng-show="$ctrl.accesosSugeridos">
+      <a ng-click="$ctrl.accesosSugeridos=false">Acceder con otro usuario</a>
+      <a ui-sref="access.forgotpwd">¿Ha olvidado su contraseña?</a>
+    </div>
+    <div class="clearfix"></div>
+    <div class="text-center m-t-xxl" ng-include="'app/core/commons/blocks/page_footer.html'"></div>
+  </div>
+</div>

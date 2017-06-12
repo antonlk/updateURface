@@ -1,0 +1,65 @@
+<div class="wrapper-md col-md-12">
+  <div class="card">
+    <div layout-="column">
+      <md-toolbar class="md-primary barradeopciones" cdty-sticky="table">
+        <div class="md-toolbar-tools">
+          <md-input-container md-no-float>
+            <input class="md-input" placeholder="Filtrar ..." ng-model="$ctrl.filter.filtro">
+          </md-input-container>
+          <div class="flex"></div>
+          <md-button class="md-default md-raised btn-fw m-b-sm btn-guardar" ui-sref="app.teachers.teacher-info({teacherId:$ctrl.teacher.id})">
+            <i class="fa fa-user"></i> Mi perfil
+          </md-button>
+        </div>
+      </md-toolbar>
+      <md-content layout-padding>
+              <div ng-hide="$ctrl.studentsTable.rows[0]"class="col-md-12 bg-warning" style="background:rgba(250, 215, 51,.33)">
+                <p style="padding:10px 0 0 10px;">No hay datos</p>
+              </div>
+              <div tasty-table bind-resource="$ctrl.studentsTable" ng-show="$ctrl.studentsTable.rows[0]" watch-resource="collection"
+                class="col-md-12" bind-filters="$ctrl.filter.filtro">
+                <table class="table table-condensed table-striped tabla-seleccionable">
+                  <thead tasty-thead></thead>
+                  <tbody>
+                    <tr ng-repeat="s in rows" >
+                      <td>
+                        {{::s.name}}
+                      </td>
+                      <td>
+                        {{::s.surname}}
+                      </td>
+                      <td>
+                        {{::s.type}}
+                      </td>
+                      <td>
+                        {{::s.className}}
+                      </td>
+                      <td>
+                        <span ng-bind="s.code"></span>
+                        <span ng-hide="s.code">Sin asignar</span>
+                      </td>
+                      <td>
+                        <span class="cursor-pointer text-azul" tooltip-placement="left" 
+                        ui-sref="app.teachers.student-info({studentId:s.studentId})" tooltip="Ver perfil">
+                          <i class="fa fa-eye"></i>
+                        </span>
+                      </td>
+                      <td>
+                        <span ng-if ="s.gotCode===0" class="cursor-pointer text-verde" tooltip-placement="left" 
+                        ng-click="$ctrl.grantAuth(s.studentId)" tooltip="Generar codigo">
+                          <i class="fa fa-check"></i>
+                        </span>
+                        <span ng-if ="s.gotCode===1" class="cursor-pointer text-rojo" tooltip-placement="left" 
+                        ng-click="$ctrl.revokeAuth(s.studentId)" tooltip="Revocar codigo">
+                          <i class="fa fa-times"></i>
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div tasty-pagination list-items-per-page="[]" bind-items-per-page="25" template-url="app/core/commons/blocks/pagination-ng-tasty.html"></div>
+              </div>
+      </md-content>
+    </div>
+  </div>
+</div>

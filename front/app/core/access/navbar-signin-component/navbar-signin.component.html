@@ -1,0 +1,13 @@
+<div class="md-navbar navbar login hidden-xs" ng-show="$ctrl.inNW">
+    <div style="position:absolute;">
+        <img src="/img/logo-cabecera.png" height="30" class="logo" />
+    </div>
+    <div class="navbar-collapse box-shadow">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a ui-fullscreen></a></li>
+            <li><a class="minimizar" ng-click="$ctrl.minimize()"><i class="fa fa-minus"></i></a></li>
+            <li><a class="maximizar" ng-click="$ctrl.maximize()"><i class="fa fa-square"></i></a></li>
+            <li><a class="cerrar" ng-click="$ctrl.close($event)"><i class="fa fa-times"></i></a></li>
+        </ul>
+    </div>
+</div>

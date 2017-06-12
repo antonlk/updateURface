@@ -1,0 +1,60 @@
+<div class="wrapper-md col-md-12">
+  <div class="card card-form">
+    <div layout-="column">
+      <md-toolbar class="md-primary barradeopciones" cdty-sticky>
+        <div class="md-toolbar-tools">
+          Bienvenido {{::$ctrl.student.name}} {{::$ctrl.student.surname}}
+          <div class="flex"></div>
+          <md-button class="md-default btn-guardar" ui-sref="app.students.student-info({studentId:$ctrl.student.studentId,student:$ctrl.student})">
+            <i class="fa fa-user"></i> <small class="hidden-xs">Mi perfil</small>
+          </md-button>
+        </div>
+      </md-toolbar>
+      <md-content layout-padding>
+        <div class="form-group">
+          <div class="col-sm-6 col-sm-offset-3" ng-if="$ctrl.profileImage">
+            <div class="bg-white wrapper-sm b-a">
+              <div class="bg-light">
+                <img ng-show="$ctrl.profileImage" ng-src="data:image/JPEG;base64,{{$ctrl.profileImage}}" width="100%" />
+              </div>
+            </div>
+            <div layout-align="center center">
+              <div coderty-loading="$ctrl.saving">
+              <md-button class="vsg md-button md-ink-ripple ng-click-active col-sm-2" ng-click="$ctrl.deletePhoto()"><i class="fa fa-trash"></i> Borrar</md-button>
+              <md-button class="md-button md-ink-ripple ng-click-active col-sm-2 btn-guardar" ng-click="$ctrl.save()"><i class="fa fa-check"></i> Guardar</md-button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-md-offset-3" ng-if="!$ctrl.profileImage" layout-align="center center">
+            <div ng-if="!$ctrl.editingImage.picFile" ngf-drop ngf-select ng-model="$ctrl.editingImage.picFile" ngf-pattern="image/*"
+              class="drop-box" ngf-drag-over-class="'dragover'" ngf-multiple="false" ngf-allow-dir="true" ngf-max-size="10MB">
+              <p>Arrastre una imagen o haga click <a href><strong>aquí</strong></a></p>
+            </div>
+            <div ng-messages="form.$error">
+              <div ng-message="pattern">El archivo no tiene un formato de imagen.</div>
+              <div ng-message="maxSize">El tamaño máximo permitido es de 4MB.</div>
+            </div>
+            <img-crop class="cropArea" ng-if="$ctrl.editingImage.picFile" image="$ctrl.editingImage.picFile  | ngfDataUrl" area-type="square"
+              result-image="$ctrl.editingImage.croppedDataUrl" ng-init="$ctrl.editingImage.croppedDataUrl=''">
+            </img-crop>
+
+            <div ng-if="$ctrl.editingImage.croppedDataUrl">
+              <div class="inline bg-white wrapper-sm b-a">
+                <div class="bg-light">
+                  <img ng-src="{{$ctrl.editingImage.croppedDataUrl}}" />
+                </div>
+              </div>
+              <md-button class="md-button md-ink-ripple ng-click-active" ng-click="$ctrl.saveEditingImage()"><i class="fa fa-check"></i> Confirmar selección</md-button>
+              <md-button class="vsg md-button md-ink-ripple ng-click-active" ng-click="$ctrl.discardEditingImage()"><i class="fa fa-trash"></i> Borrar</md-button>
+            </div>
+
+            <span class="progress" ng-show="$ctrl.progress >= 0">
+		          	<div style="width:{{$ctrl.progress}}%" ng-bind="$ctrl.progress + '%'"></div>
+		         </span>
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+      </md-content>
+    </div>
+  </div>
+</div>

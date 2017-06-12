@@ -1,0 +1,31 @@
+<md-dialog aria-label="Dialog">
+  <md-toolbar class="md-primary md-transparent">
+    <div class="md-toolbar-tools">
+      <h2><i class="fa {{vm.icoTitle}} fa-lg"></i> {{vm.title}}</h2>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+    <div class="md-dialog-content">
+      <p class="text-danger" ng-bind-html="vm.text"></p>
+    </div>
+  </md-dialog-content>
+  <md-dialog-actions layout="row">
+    <hr />
+    <md-button ng-click="vm.close()" class="">
+      <i class="fa {{vm.icoCancel}}"></i> {{vm.btnCancel}}
+    </md-button>
+    <span ng-if="::vm.needsConfirmation">
+      <button ng-show="!vm.confirmed" class="vsg md-button md-ink-ripple ng-click-active md-button ng-scope" type="button" ng-click="vm.confirmed=true">
+          <i class="fa {{vm.icoOk}}"></i> {{vm.btnOk}}
+      </button>
+      <button ng-show="vm.confirmed" class="vsg md-button md-ink-ripple ng-click-active md-button ng-scope" type="button" ng-click="vm.confirm()">
+          <i class="fa {{vm.icoOk}}"></i> {{vm.btnOkConfirmation}}
+      </button>
+    </span>
+    <span ng-if="::!vm.needsConfirmation">
+    <button class="vsg md-button md-ink-ripple ng-click-active md-button ng-scope" type="button" ng-click="vm.confirm()">
+        <i class="fa {{vm.icoOk}}"></i> {{vm.btnOk}}
+    </button>
+</span>
+  </md-dialog-actions>
+</md-dialog>

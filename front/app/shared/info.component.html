@@ -1,0 +1,77 @@
+<div class="wrapper-md">
+  <div class="card">
+    <div class="col-md-12 md-padding" layout="row" ng-if="$ctrl.teacher">
+      <span flex></span>
+      <md-button class="btn-editar" ui-sref='app.teachers.teacher-edit({teacherId:$ctrl.teacher.teacherId})'>
+        <i class="fa fa-edit"></i> Editar
+      </md-button>
+    </div>
+
+    <md-content class="md-padding">
+<!-- STUDENT INFO -->
+      <div class="row fichainfo" style="padding-top: 0px;" ng-show="$ctrl.student">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-9">
+              <h2>{{$ctrl.student.name}} {{$ctrl.student.surname}}</h2>
+            </div>
+          </div>
+          <div class="col-md-4" layout="column">
+            <div class="bg-white wrapper-sm b-a" ng-show="$ctrl.student.photo">
+              <div class="bg-light">
+                <img ng-src="data:image/JPEG;base64,{{$ctrl.student.photo}}" width="100%" alt="No disponible" />
+              </div>
+            </div>
+            <div ng-show="!$ctrl.student.photo">
+              <small>Foto</small>
+              <strong><i class="fa fa-cross"></i> No disponible</strong>
+            </div>
+          </div>
+          <div class="column">
+            <div class="col-md-2">
+              <small>Nombre</small>
+              <strong><i class="fa fa-user"></i> {{::$ctrl.student.name}}</strong>
+            </div>
+            <div class="col-md-2">
+              <small>Apellidos</small>
+              <strong><i class="fa fa-id-card-o"></i> {{::$ctrl.student.surname}}</strong>
+            </div>
+            <div class="col-md-2">
+              <small>Clase</small>
+              <strong><i class="fa fa-id-card-o"></i> {{::$ctrl.student.className}}</strong>
+            </div>
+            <div class="col-md-2">
+              <small>Modalidad</small>
+              <strong><i class="fa fa-id-card-o"></i> {{::$ctrl.student.type}}</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+<!-- TEACHER INFO -->
+      <div class="row fichainfo" style="padding-top: 0px;" ng-show="$ctrl.teacher">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-9">
+              <h2>{{$ctrl.teacher.name}} {{$ctrl.teacher.surname}}</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <small>Nombre</small>
+              <strong><i class="fa fa-user"></i> {{::$ctrl.teacher.name}}</strong>
+            </div>
+            <div class="col-md-4">
+              <small>Apellidos</small>
+              <strong><i class="fa fa-id-card-o"></i> {{::$ctrl.teacher.surname}}</strong>
+            </div>
+            <div class="col-md-4">
+              <small>Clase</small>
+              <strong><i class="fa fa-id-card-o"></i> {{::$ctrl.teacher.DNI}}</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </md-content>
+  </div>
+</div>

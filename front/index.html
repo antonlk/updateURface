@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es_ES" data-ng-app="app">
+
+<head>
+  <meta charset="utf-8" />
+  <title>PutURfaceHERE</title>
+  <meta name="description" content="updateURfacet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+  <link rel="stylesheet" href="css/animate.css" type="text/css" />
+  <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/simple-line-icons.css" type="text/css" />
+  <!-- material css -->
+  <link rel="stylesheet" href="vendor/angular/angular-material/angular-material.css" type="text/css" />
+  <link rel="stylesheet" href="css/material-design-icons.css" type="text/css" />
+  <link rel="stylesheet" href="css/font.css" type="text/css" />
+  <link rel="stylesheet" href="css/app.css" type="text/css" />
+
+  <link rel="stylesheet" href="vendor/modules/angularjs-toaster/toaster.min.css" type="text/css" />
+
+  <link rel="stylesheet" href="css/main.css" type="text/css" />
+  <!--CSS nvd3-->
+  <link rel="stylesheet" href="vendor/modules/nvd3/nv.d3.min.css">
+
+</head>
+<!--<body ng-controller="AppCtrl as di">-->
+
+<body back-space-not-back-button prevent-drag-and-drop>
+  <div class="heigth-100" flex ui-view></div>
+
+
+  <!-- jQuery -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+
+  <!-- Angular -->
+  <script src="vendor/angular/angular.js"></script>
+
+  <script src="vendor/angular/angular-animate/angular-animate.js"></script>
+  <script src="vendor/angular/angular-aria/angular-aria.js"></script>
+  <script src="vendor/angular/angular-cookies/angular-cookies.js"></script>
+  <script src="vendor/angular/angular-resource/angular-resource.js"></script>
+  <script src="vendor/angular/angular-sanitize/angular-sanitize.js"></script>
+  <!--<script src="vendor/angular/angular-touch/angular-touch.js"></script>-->
+  <script src="vendor/angular/angular-messages/angular-messages.js"></script>
+  <!--Angular nvd3-->
+  <script src="vendor/modules/d3/d3.min.js"></script>
+  <script src="vendor/modules/nvd3/nv.d3.min.js"></script>
+  <script src="vendor/modules/angular-nvd3/angular-nvd3.min.js"></script>
+
+  <!-- ngMaterial -->
+  <script src="vendor/angular/angular-material/angular-material.js"></script>
+
+  <!-- Vendor -->
+  <script src="vendor/angular/angular-ui-router/angular-ui-router.js"></script>
+  <script src="vendor/angular/ngstorage/ngStorage.js"></script>
+  <script src="vendor/angular/angular-filter/angular-filter.min.js"></script>
+
+  <!--angular toaster-->
+  <script src="vendor/modules/angularjs-toaster/toaster.min.js"></script>
+  <!--CODERTY MODULES-->
+  <script src="vendor/modules/coderty-loading/coderty-loading.js"></script>
+  <script src="vendor/modules/coderty-filter-multiple/coderty-filter-multiple.js"></script>
+  <!--   NG-TASTY  -->
+  <script src="vendor/modules/ng-tasty/ng-tasty-tpls.min.js"></script>
+  <!--   UI.Utils  -->
+  <script src="vendor/angular/angular-ui-utils/ui-utils.js"></script>
+  <!--NG-STATS-->
+  <script src="vendor/modules/ng-stats/ng-stats.min.js"></script>
+
+  <!--angular-activity-monitor-->
+  <script src="vendor/modules/angular-activity-monitor/activity-monitor.min.js"></script>
+  <!-- bootstrap -->
+  <script src="vendor/angular/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <!-- lazyload -->
+  <script src="vendor/angular/oclazyload/ocLazyLoad.js"></script>
+  <!-- translate -->
+  <script src="vendor/angular/angular-translate/angular-translate.js"></script>
+  <script src="vendor/angular/angular-translate/loader-static-files.js"></script>
+  <script src="vendor/angular/angular-translate/storage-cookie.js"></script>
+  <script src="vendor/angular/angular-translate/storage-local.js"></script>
+  <!--   ng-table -->
+  <!--<script src="vendor/modules/ng-table/ng-table.min.js"></script>-->
+
+  <!-- Socket.IO -->
+  <script src="vendor/socketio/ngSocket.js"></script>
+  <script src="vendor/socketio/socketio-1.3.7.js"></script>
+
+  <!--   angular-md5 -->
+  <script src="vendor/modules/angular-md5/angular-md5.min.js"></script>
+
+
+
+  <!-- App -->
+  <script src="app/app.js"></script>
+  <script src="app/config.js"></script>
+  <script src="app/config.lazyload.js"></script>
+  <script src="app/config.router.js"></script>
+  <script src="app/app.component/app.component.js"></script>
+  <script src="app/main.js"></script>
+
+  <script src="app/core/commons/component/cdty-nav.component/cdty-nav.service.js"></script>
+  <script src="app/core/commons/component/cdty-nav.component/cdy-nav.component.js"></script>
+
+
+  <!--CORE-->
+  <script src="app/core/core.js"></script>
+
+  <!-- UTILIDADES FACTORY -->
+  <script src="app/core/commons/factories/utilidades.factory.js"></script>
+
+  <!--COMMONS: Services-->
+  <script src="app/core/commons/services/ui-load.js"></script>
+
+  <!--COMMONS: Directives-->
+  <script src="app/core/commons/directives/ccChecksForms.js"></script>
+  <script src="app/core/commons/directives/forms-tables.directive.js"></script>
+  <script src="app/core/commons/directives/ui-butterbar.js"></script>
+  <script src="app/core/commons/directives/ui-fullscreen.js"></script>
+  <script src="app/core/commons/directives/ui-jq.js"></script>
+  <script src="app/core/commons/directives/ui-nav.js"></script>
+  <script src="app/core/commons/directives/ui-validate.js"></script>
+  <script src="app/core/commons/directives/captcha-sum.js"></script>
+  <script src="app/core/commons/directives/agrutable.directive.js"></script>
+  <script src="app/core/commons/directives/canvasresize.directive.js"></script>
+  <script src="app/core/commons/directives/back-space-not-back-button.js"></script>
+  <script src="app/core/commons/directives/preventDragAndDrop.js"></script>
+  <script src="app/core/commons/directives/check-availability.js"></script>
+
+  <!--COMMONS: Filters-->
+  <script src="app/core/commons/filters/filters-personalizados.js"></script>
+
+  <!--access-->
+  <script src="app/core/access/access.js"></script>
+  <script src="app/core/access/student-login/student-login.component.js"></script>
+  <script src="app/core/access/teacher-login/teacher-login.component.js"></script>
+  <script src="app/core/access/shared/access.factory.js"></script>
+
+  <!-- error service -->
+  <script src="app/core/errors/errors.js"></script>
+  <script src="app/core/errors/js/errors.service.js"></script>
+  <!--navbar signin component-->
+  <script src="app/core/access/navbar-signin-component/navbar-signin.component.js"></script>
+
+
+  <!-- SERVICE FOR STUDENTS AND TEACHERS -->
+  <script src="app/shared/data.service.js"></script>
+  <script src="app/shared/code.factory.js"></script>
+
+  <!-- STUDENTS -->
+  <script src="app/students/students.js"></script>
+  <script src="app/students/update-photo/update-photo.component.js"></script>
+  <script src="app/students/student-info/student-info.component.js"></script>
+
+  <!-- TEACHERS -->
+  <script src="app/teachers/teachers.js"></script>
+  <script src="app/teachers/students-list/students-list.component.js"></script>
+  <script src="app/teachers/info/info.component.js"></script>
+  <script src="app/teachers/edit/edit.component.js"></script>
+</body>
+
+</html>
