@@ -16,7 +16,8 @@
             url: '/studentList',
             component: 'studentsList',
             resolve: {
-              students: StudentsList
+              students: StudentsList,
+              modalities: ModalityList
             },
             params: {
               filter: null,
@@ -81,8 +82,8 @@
     );
 
   StudentsList.$inject = ['DataService'];
-  function StudentsList(DataSercice) {
-    return DataSercice.getStudents();
+  function StudentsList(DataService) {
+    return DataService.getStudents();
   }
 
   Student.$inject = ['$stateParams', 'DataService'];
@@ -94,5 +95,11 @@
   function Teacher($stateParams, DataService) {
     return DataService.getTeacher($stateParams.teacherId);
   }
+
+  ModalityList.$inject = ['DataService'];
+  function ModalityList(DataService){
+    return DataService.getModalityList();
+  }
+  
 
 })();

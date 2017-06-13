@@ -28,6 +28,6 @@ express.secret = 'DI00H4V0C00CCA&OBT&AQL00C0D3RTY00DI';
 
 module.exports = app;
 
-app.listen(80, function () {
+app.listen(3000, function () {
     console.log('Node app is running');
 });

@@ -7,7 +7,8 @@
       templateUrl: 'app/teachers/students-list/students-list.component.html',
       controller: studentsList,
       bindings: {
-        "students": "<"
+        "students": "<",
+        "modalities": "<"
       },
     });
 
@@ -16,14 +17,34 @@
     var vm = this;
     //si proviene de $sessionStorage, la id de profesor es "id" y no "teacherId"
     vm.teacher = $sessionStorage.usuario;
+    vm.saving=false;
 
     vm.studentsList = vm.students.data;
+  
+    vm.modalities = vm.modalities.data;
+
+
+    vm.selectedModality;
+    vm.selectedClassName;
+
+    
+    vm.getClassNames= function (){
+      if(!vm.selectedModality){
+
+      }
+      else {
+        DataService.getClassNameList(vm.selectedModality).then(function(res){
+          vm.classNames = res.data;
+        });
+      }
+    }
+
    
     vm.studentsTable = {
       "header": [
         { "key": "name", "name": "Nombre" },
         { "key": "surname", "name": "Apellidos" },
-        { "key": "type", "name": "Modalidad" },
+        { "key": "modality", "name": "Modalidad" },
         { "key": "className", "name": "Clase" },
         { "key": "code", "name": "Codigo" },
       ],
@@ -57,6 +78,17 @@
         function (err) {
           ToasterFactory.pop({ type: 'error', title: 'Permiso', body: 'codigo no ha sido borrado' });
         });
+    }
+
+
+    vm.grantAuthStudents = function (){
+      vm.saving = true;
+      if (vm.selectedClassName){
+
+      }
+      else {
+
+      }
     }
 
   }

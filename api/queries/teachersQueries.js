@@ -6,6 +6,12 @@ var Teachers = {
     },
      getTeacher: function (teacherId,callback){
         return db.query("SELECT teacherId,name,surname,DNI FROM teachers WHERE teacherId = ?",[teacherId],callback);
+    },
+    getClassNameList: function(modality,callback){
+        db.query(`SELECT DISTINCT className FROM students WHERE modality = ?`,[modality],callback);
+    },
+    getModalityList: function(callback){
+        db.query(`SELECT DISTINCT modality FROM students`,callback);
     }
 
 

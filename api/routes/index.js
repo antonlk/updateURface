@@ -87,6 +87,20 @@ router.get('/students/student/:studentId', function (req, res) {
   });
 });
 
+router.get('/students/:modality', function (req, res) {
+  Students.getStudentsByModality(req.params.modality,function (err, results) {
+    if (err){res.json(err)}
+    else {res.json(results)}
+  });
+});
+
+router.get('/students/:modality/:className', function (req, res) {
+  Students.getStudentsByClassNameAndModality(req.params.modality,req.params.className,function (err, results) {
+    if (err){res.json(err)}
+    else {res.json(results)}
+  });
+});
+
 router.post('/students/student/:studentId/updatePhoto',function (req,res){
   Students.updatePhoto(req.body.student.studentId,req.body.student.photo,function(err,results){
     if (err){res.json(err)}
@@ -115,6 +129,21 @@ router.post('/students/student/:studentId/auth/revoke',function (req,res){
 //                 TEACHERS                   //
 //--------------------------------------------//
 
+
+router.get('/teachers/modalitylist', function (req, res) {
+  Teachers.getModalityList(function (err, results) {
+    if (err){res.json(err)}
+    else {res.json(results)}
+  });
+});
+
+router.get('/teachers/:modality/classnamelist', function (req, res) {
+  console.log(req.params)
+  Teachers.getClassNameList(req.params.modality,function (err, results) {
+    if (err){res.json(err)}
+    else {res.json(results)}
+  });
+});
 
 router.get('/teachers/teacher/:teacherId', function (req, res) {
   Teachers.getTeacher(req.params.teacherId,function (err, results) {
