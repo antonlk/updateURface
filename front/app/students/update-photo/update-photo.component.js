@@ -47,6 +47,9 @@
       vm.saving=true;
       DataService.updateStudentPhoto(vm.student).then(function (res) {
         ToasterFactory.pop({ type: 'success', title: 'OK!', body: 'imagen guardada' });
+        DataService.revokeAuthStudent(vm.student.studentId).then(function(res){
+          ToasterFactory.pop({ type: 'info', title: 'Contraseña', body: 'Se ha inutilizado' });
+        });
          vm.saving=false;
       },
         function (err) {

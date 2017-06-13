@@ -14,6 +14,7 @@
 
   studentsList.$inject = ['$filter', '$stateParams', '$sessionStorage', 'CodeFactory', 'DataService', 'ToasterFactory','$state'];
   function studentsList($filter, $stateParams, $sessionStorage, CodeFactory, DataService,ToasterFactory,$state) {
+    
     var vm = this;
     //si proviene de $sessionStorage, la id de profesor es "id" y no "teacherId"
     vm.teacher = $sessionStorage.usuario;
@@ -25,7 +26,7 @@
 
 
     vm.selectedModality;
-    vm.selectedClassName;
+    vm.selectedClassName; 
 
     
     vm.getClassNames= function (){
@@ -55,7 +56,7 @@
       var code = CodeFactory.getCode();
       DataService.grantAuthStudent(studentId,vm.teacher.id,code).then(function (res) {
         if (res) {
-          ToasterFactory.pop({ type: 'success', title: 'Permiso', body: 'codigo asignado correctamente' });
+          ToasterFactory.pop({ type: 'success', title: "Permiso", body: 'codigo asignado correctamente' });
           DataService.getStudents().then(function(res){
             $state.reload();
           });
@@ -84,10 +85,70 @@
     vm.grantAuthStudents = function (){
       vm.saving = true;
       if (vm.selectedClassName){
-
+        DataService.getStudentsByClassNameAndModality(vm.selectedModality,vm.selectedClassName).then(
+          function(res){
+            var studentsList = res.data;
+            for (var i=0;i<studentsList.length;i++){
+              vm.grantAuth(studentsList[i].studentId);
+               ToasterFactory.pop({ type: 'success', title: 'Permiso', body: 'codigo eliminado correctamente' });
+            }
+            vm.saving = false;
+          },
+          function(err){
+             ToasterFactory.pop({ type: 'error', title: 'Permisos', body: 'Algo salio mal' });
+              vm.saving = false;
+          }
+        );
       }
       else {
+        DataService.getStudentsByModality(vm.selectedModality).then(
+          function(res){
+            var studentsList = res.data;
+            for (var i=0;i<studentsList.length;i++){
+              vm.grantAuth(studentsList[i].studentId);
+            }
+             vm.saving = false;
+          },
+          function(err){
+             ToasterFactory.pop({ type: 'error', title: 'Permisos', body: 'Algo salio mal' });
+              vm.saving = false;
+          }
+        );
+      }
+    }
 
+    vm.revokeAuthStudents = function (){
+      vm.saving = true;
+      if (vm.selectedClassName){
+        DataService.getStudentsByClassNameAndModality(vm.selectedModality,vm.selectedClassName).then(
+          function(res){
+            var studentsList = res.data;
+            for (var i=0;i<studentsList.length;i++){
+              vm.revokeAuth(studentsList[i].studentId);
+               ToasterFactory.pop({ type: 'success', title: 'Permiso', body: 'codigo eliminado correctamente' });
+            }
+            vm.saving = false;
+          },
+          function(err){
+             ToasterFactory.pop({ type: 'error', title: 'Permisos', body: 'Algo salio mal' });
+              vm.saving = false;
+          }
+        );
+      }
+      else {
+        DataService.getStudentsByModality(vm.selectedModality).then(
+          function(res){
+            var studentsList = res.data;
+            for (var i=0;i<studentsList.length;i++){
+              vm.revokeAuth(studentsList[i].studentId);
+            }
+             vm.saving = false;
+          },
+          function(err){
+             ToasterFactory.pop({ type: 'error', title: 'Permisos', body: 'Algo salio mal' });
+              vm.saving = false;
+          }
+        );
       }
     }
 

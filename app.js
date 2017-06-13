@@ -24,10 +24,10 @@ app.use('/api', routes);
 
 //protegemos las llamadas a la api
 express.secret = 'DI00H4V0C00CCA&OBT&AQL00C0D3RTY00DI';
-//app.use('/api',expressJwt({secret: express.secret}));
+app.use('/api',expressJwt({secret: express.secret}));
 
 module.exports = app;
 
-app.listen(3000, function () {
+app.listen(80, function () {
     console.log('Node app is running');
 });

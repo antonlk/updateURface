@@ -86,9 +86,11 @@
       $http.get($http.defaults.urlApi + '/access/logout')
         .success(function (res) {
           $state.go('access.clean');
+           console.log("ok")
         })
         .error(function (x) {
           $state.go('access.signin');
+          console.log("ko")
         });
     }
   }

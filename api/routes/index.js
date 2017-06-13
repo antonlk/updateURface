@@ -26,13 +26,12 @@ router.post('/login', function (req, res) {
           name:results[0].name,
           surname: results[0].surname,
           class: results[0].className,
-          type: results[0].type,
+          modality: results[0].modality,
           token : tok
         }
         return res.json(student).status(200);
       }
       else {
-        console.log(err)
         res.status(401, 'Wrong user or password');
         res.json(err);
       }
@@ -59,6 +58,14 @@ router.post('/login', function (req, res) {
   }
 });
 
+
+//--------------------------------------------//
+//                 SIGN OUT                   //
+//--------------------------------------------//
+
+router.get('/access/logout', function (req, res) {
+ res.status(200).json("loged out");
+});
 
 //--------------------------------------------//
 //                  ERRORS                    //
@@ -109,7 +116,6 @@ router.post('/students/student/:studentId/updatePhoto',function (req,res){
 });
 
 router.post('/students/student/:studentId/auth/grant',function (req,res){
-  console.log(req.body)
   Students.grantAuth(req.body.studentId,req.body.teacherId,req.body.code,function(err,results){
     if(err){res.json(err)}
     else {res.json(results)}

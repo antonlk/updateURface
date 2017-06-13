@@ -18,6 +18,9 @@
         this.grantAuthStudent = grantAuthStudent;
         this.getClassNameList = getClassNameList;
         this.getModalityList = getModalityList;
+        this.getStudentsByModality = getStudentsByModality;
+        this.getStudentsByClassNameAndModality = getStudentsByClassNameAndModality;
+
 
         /**
                  * @description Devuelve profesor por id
@@ -77,6 +80,22 @@
          function getModalityList(){
             return $http({
                 url: BASEURL + '/teachers/modalitylist',
+                method: 'GET',
+                timeout: $http.defaults.timeout
+            });
+         }
+
+         function  getStudentsByClassNameAndModality(modality,className){
+             return $http({
+                url: BASEURL + '/students/' + modality + "/" + className,
+                method: 'GET',
+                timeout: $http.defaults.timeout
+            });
+         }
+
+         function  getStudentsByModality(modality){
+             return $http({
+                url: BASEURL + '/students/' + modality ,
                 method: 'GET',
                 timeout: $http.defaults.timeout
             });
