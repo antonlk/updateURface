@@ -7687,16 +7687,16 @@ md-card md-toolbar a.md-button:hover {
 .barra .md-button:hover i {
   opacity: 1;
 }
-cdty-nav .migapan {
+nav .migapan {
   display: inline-table;
   padding-top: 9px;
   padding-left: 20px;
 }
-cdty-nav .migapan ng-md-icon {
+nav .migapan ng-md-icon {
   margin-right: 10px;
   height: 29px;
 }
-cdty-nav button {
+nav button {
   float: left;
   word-wrap: normal;
   max-width: inherit !important;

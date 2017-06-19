@@ -23,5 +23,17 @@
         NavigationService.back();
         }
       
+        vm.save = function (){
+              vm.saving=true;
+            DataService.updateTeacher(vm.teacher).then(function(res){
+                 ToasterFactory.pop({ type: 'success', title: "Datos", body: 'actualizado correctamente' });
+                   vm.saving=false;
+                   vm.back();
+            },
+            function(err){
+                 ToasterFactory.pop({ type: 'error', title: 'Datos', body: 'no se actualizaron los datos' });
+                   vm.saving=false;
+            })
+        }
     }
 })();

@@ -63,7 +63,7 @@
                         <md-input-container required flex-gt-sm class="md-block">
                             <label><i class="fa fa-envelope"></i> Email</label>
                             <input ng-pattern="/^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i"
-                                type="text" name="email" ng-model="$ctrl.user.email" cc-check-available-mail required autocomplete="off"
+                                type="text" name="email" ng-model="$ctrl.user.email" required autocomplete="off"
                             />
                             <div ng-messages="form.email.$error" ng-if="form.email.$touched">
                                 <div ng-message="required">Indique email del usuario</div>

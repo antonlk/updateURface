@@ -29,7 +29,7 @@ var Students = {
         return db.query('UPDATE students SET photo = ? WHERE studentId= ?',[photo,studentId],callback);
     },
     grantAuth: function(studentId,teacherId,code,callback){
-        return db.query(`INSERT INTO authorizations (studentId,teacherId,code) VALUES (?,?,?)`,[studentId,teacherId,code],callback);
+        return db.query(`INSERT INTO authorizations (studentId,teacherId,code,creationDate) VALUES (?,?,?,now())`,[studentId,teacherId,code],callback);
     },
     revokeAuth: function(studentId,callback){
         return db.query(`DELETE FROM authorizations WHERE studentId = ?`,[studentId],callback);

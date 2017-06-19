@@ -65,8 +65,8 @@
         .textContent('¿Seguro que quieres cerrar la sesión?')
         .ariaLabel('Salir ')
         .targetEvent(ev)
-        .ok('Sí, cerrar la sesión')
-        .cancel('Continuar trabajando')
+        .ok('Sí')
+        .cancel('No')
         .css('signout-dialog');
 
       $mdDialog.show(confirm).then(function () {

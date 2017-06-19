@@ -20,7 +20,7 @@
         this.getModalityList = getModalityList;
         this.getStudentsByModality = getStudentsByModality;
         this.getStudentsByClassNameAndModality = getStudentsByClassNameAndModality;
-
+        this.updateTeacher = updateTeacher;
 
         /**
                  * @description Devuelve profesor por id
@@ -35,9 +35,16 @@
             });
         }
 
+        /**
+         * @description actualiza un profesor por id
+         */
+
+         function updateTeacher(teacher){
+             return $http.post(BASEURL + "/teachers/teacher/"+teacher.teacherId+"/update",{teacher});
+         }
 
         /**
-         * @description codigo para el alumno
+         * @description asigna codigo para el alumno
          * @param {number} studentId
          * @param {number} teacherId
          * @param {String} code

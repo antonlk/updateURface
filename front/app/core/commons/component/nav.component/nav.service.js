@@ -1,10 +1,10 @@
 (function () {
   'use strict';
 
-  app.service("NavigationService", CdtyNavService);
+  app.service("NavigationService", NavService);
 
-  CdtyNavService.$inject = [ '$state', '$rootScope', 'ToasterFactory', 'GLOBALS', '$q', '$timeout','$sessionStorage'];
-  function CdtyNavService ( $state, $rootScope, ToasterFactory, GLOBALS, $q, $timeout, $sessionStorage ) {
+  NavService.$inject = [ '$state', '$rootScope', 'ToasterFactory', 'GLOBALS', '$q', '$timeout','$sessionStorage'];
+  function NavService ( $state, $rootScope, ToasterFactory, GLOBALS, $q, $timeout, $sessionStorage ) {
     
     var routerStack = [ ];
     var vm = this;

@@ -12,6 +12,10 @@ var Teachers = {
     },
     getModalityList: function(callback){
         db.query(`SELECT DISTINCT modality FROM students`,callback);
+    },
+    updateTeacher: function(teacher,callback){
+        db.query(`UPDATE teachers SET name= ? , surname = ?, DNI = ? WHERE teacherId = ?`,
+        [teacher.name,teacher.surname,teacher.DNI,teacher.teacherId],callback);
     }
 
 

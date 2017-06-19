@@ -10,6 +10,9 @@ var App = require('../queries/appQueries');
 var Students = require('../queries/studentsQueries');
 var Teachers = require('../queries/teachersQueries');
 
+
+//Aqui es donde se indican todas las rutas que usara nuestra app
+
 //--------------------------------------------//
 //                    LOGIN                   //
 //--------------------------------------------//
@@ -157,5 +160,13 @@ router.get('/teachers/teacher/:teacherId', function (req, res) {
     else {res.json(results)}
   });
 });
+
+router.post('/teachers/teacher/:teacherId/update',function (req,res){
+  Teachers.updateTeacher(req.body.teacher,function(err,results){
+     if(err){res.json(err)}
+    else {res.json(results)}
+  })
+});
+
 
 module.exports = router;

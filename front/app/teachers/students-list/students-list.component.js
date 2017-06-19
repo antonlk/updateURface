@@ -56,10 +56,9 @@
       var code = CodeFactory.getCode();
       DataService.grantAuthStudent(studentId,vm.teacher.id,code).then(function (res) {
         if (res) {
-          ToasterFactory.pop({ type: 'success', title: "Permiso", body: 'codigo asignado correctamente' });
-          DataService.getStudents().then(function(res){
-            $state.reload();
-          });
+           $state.reload();
+          //ToasterFactory.pop({ type: 'success', title: "Permiso", body: 'codigo asignado correctamente' });
+           
         }
       },
         function (err) {
@@ -70,10 +69,8 @@
     vm.revokeAuth = function (studentId) {
       DataService.revokeAuthStudent(studentId).then(function (res) {
         if (res) {
-          ToasterFactory.pop({ type: 'success', title: 'Permiso', body: 'codigo eliminado correctamente' });
-           DataService.getStudents().then(function(res){
-            $state.reload();
-          });
+         // ToasterFactory.pop({ type: 'success', title: 'Permiso', body: 'codigo eliminado correctamente' }); 
+           $state.reload();
         }
       },
         function (err) {

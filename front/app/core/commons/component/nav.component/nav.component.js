@@ -1,34 +1,22 @@
 (function () {
   'use strict';
   app
-    .component('cdtyNav', {
-      templateUrl: 'app/core/commons/component/cdty-nav.component/cdty-nav.html',
+    .component('nav', {
+      templateUrl: 'app/core/commons/component/nav.component/nav.html',
       bindings: { },
-      controller: CdtyNavController
+      controller: NavController
     });
   /**
    * CONTROLADOR de 'Controller'
    */
-  CdtyNavController.$inject = [ '$rootScope', 'NavigationService', '$stateParams' ];
-  function CdtyNavController( $rootScope, NavigationService, $stateParams ) {
+  NavController.$inject = [ '$rootScope', 'NavigationService', '$stateParams' ];
+  function NavController( $rootScope, NavigationService, $stateParams ) {
     var vm = this;
 
     vm.title = { };
     vm.cambiarEstado = function () {
       NavigationService.back();
     };
-
-    //Esperamos cambios en la ruta para mostrar / ocultar la opción de volver
-    // $rootScope.$on('updateDefaultRoute', function(event, args) {
-    //   if(args && args.title){
-    //     vm.title = {
-    //       text: args.title.text,
-    //       icon: args.title.icon,
-    //     };
-    //   }else{
-    //     vm.title = { };
-    //   }
-    // });
     
     $rootScope.$on('updateRoute', function(event, args) {
       // console.log('llega args', args);
