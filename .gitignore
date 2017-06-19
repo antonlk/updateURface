@@ -1,4 +1,4 @@
 node_modules/
 bower_components/
 *.DS_Store
-runnerty/node_modules/
+runnerty/node_modules
