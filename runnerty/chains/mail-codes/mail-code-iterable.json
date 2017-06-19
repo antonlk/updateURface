@@ -1,0 +1,60 @@
+{
+  "id": "mail-codes-iterable",
+  "name": "sends the code asigned to every student by mail",
+  "iterable": "parallel",
+  "depends_chains": {
+    "chain_id": "get-students-data",
+    "process_id": "get-students"
+  },
+  "input": [
+    {
+      "name": "name"
+    },
+    {
+      "surname": "surname"
+    },
+    {
+      "code": "code"
+    },
+    {
+      "email": "email"
+    }
+  ],
+  "processes": [
+    {
+      "id": "mail-code",
+      "name": "mails the code to a student",
+      "depends_process": [
+        "get-students"
+      ],
+      "exec": {
+        "id": "mail_students",
+        "to": [
+          ":email"
+        ],
+        "message": "Here is ur code",
+        "title": "Here is you code for updateURface",
+        "templateDir": "./templates",
+        "template": "student-mail",
+        "ejsRender": true
+      },
+      "args": {},
+      "end_chain_on_fail": true,
+      "output": [
+        {
+          "file_name": "./runnerty.log",
+          "write": [
+            "[!] EJECUCION :DD-:MM-:YY :HH::mm::ss - :CHAIN_ID / :PROCESS_ID / mail send to :name :surname :email \n"
+          ],
+          "concat": true,
+          "maxsize": "100mb"
+        }
+      ],
+      "events": {
+        "on_start": {},
+        "on_fail": {},
+        "on_end": {}
+      }
+    }
+  ]
+}

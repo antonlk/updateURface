@@ -1,0 +1,24 @@
+{
+  "name": "runnerty-quick-start",
+  "version": "1.0.0",
+  "description": "Runnerty quick start example project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "runnerty",
+    "quick-start",
+    "example",
+    "project"
+  ],
+  "author": "Coderty",
+  "license": "MIT",
+  "dependencies": {
+    "@runnerty/executor-mail": "^0.0.2",
+    "@runnerty/executor-mysql": "0.0.4",
+    "@runnerty/executor-shell": "^0.0.1",
+    "@runnerty/notificator-mail": "^0.0.1",
+    "@runnerty/notificator-telegram": "0.0.1"
+  }
+}

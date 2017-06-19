@@ -1,0 +1,6 @@
+{
+  "chains":[
+     {"chain_path":"./chains/mail-codes/getStudents.json"},
+     {"chain_path":"./chains/mail-codes/mail-code-iterable.json"}
+  ]
+}

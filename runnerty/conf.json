@@ -1,0 +1,28 @@
+{
+  "executors": [
+   {
+    "id":"shell_default",
+    "type": "@runnerty/executor-shell"
+   },
+   {
+    "id":"mysql_students",
+    "type":"@runnerty/executor-mysql",
+    "user" : "root",
+    "password": "root",
+    "database":"photobdd",
+    "host": "localhost",
+    "port":"3306"
+   },
+    {
+      "id": "mail_students",
+      "type": "@runnerty/executor-mail",
+      "disable": false,
+      "from": "updateURface CODE <update@urface.com>",
+      "transport": "smtp://anton.lokhvitskiy@gmail.com:explayQ10al@smtp.gmail.com/?pool=true",
+      "bcc": [],
+      "templateDir": "/templates",
+      "template": "students-mail",
+      "ejsRender": true
+    }
+  ]
+}
