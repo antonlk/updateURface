@@ -18,7 +18,7 @@
       "type": "@runnerty/executor-mail",
       "disable": false,
       "from": "updateURface CODE <update@urface.com>",
-      "transport": "smtp://anton.lokhvitskiy@gmail.com:explayQ10al@smtp.gmail.com/?pool=true",
+      "transport": "smtp://user@mail.com:passwowrd@smtp.yourprovider.com/?pool=true",
       "bcc": [],
       "templateDir": "/templates",
       "template": "students-mail",
